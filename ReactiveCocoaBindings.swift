@@ -39,6 +39,14 @@ public func RACObserve(target: NSObject!, keyPath: String) -> RACSignal {
 }
 
 extension RACSignal {
+
+    func reactNextAs<T>(nextClosure:(T) -> ()) -> () {
+        subscribeNext {
+            (next: AnyObject!) -> () in
+            nextClosure(next as! T)
+        }
+    }
+    
     func reactNext(nextClosure:() -> ()) -> () {
         subscribeNext {
             (next: AnyObject!) -> () in
