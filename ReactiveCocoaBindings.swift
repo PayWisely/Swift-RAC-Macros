@@ -43,7 +43,7 @@ extension RACSignal {
     func reactNextAs<T>(nextClosure:(T) -> ()) -> () {
         subscribeNext {
             (next: AnyObject!) -> () in
-            nextClosure(next as! T)
+            nextClosure(next as T)
         }
     }
     
