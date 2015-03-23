@@ -38,6 +38,10 @@ public func RACObserve(target: NSObject!, keyPath: String) -> RACSignal {
     return target.rac_valuesForKeyPath(keyPath, observer: target)
 }
 
+public func RACOptionalObserve(target: NSObject?, keyPath: String) -> RACSignal? {
+    return target?.rac_valuesForKeyPath(keyPath, observer: target)
+}
+
 extension RACSignal {
 
     func reactNextAs<T>(nextClosure:(T) -> ()) -> () {
